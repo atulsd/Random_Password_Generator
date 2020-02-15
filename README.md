@@ -45,4 +45,6 @@ This project is about generating random password.
 
 Password Special Characters: https://owasp.org/www-community/password-special-characters
 
+Random Numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
 © 2020 Atul Mahajan. All Rights Reserved.
