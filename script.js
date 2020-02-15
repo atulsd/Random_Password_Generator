@@ -14,19 +14,19 @@
 //   alert(array[i]);
 //   //  alert("Object is: " + mixPass.number);
 // }
-function randomString(length, chars) {
-  alert("length is" + length + "Required" + chars);
-  var mask = "";
-  if (chars.indexOf("a") > -1) mask += "abcdefghijklmnopqrstuvwxyz";
-  if (chars.indexOf("A") > -1) mask += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  if (chars.indexOf("#") > -1) mask += "0123456789";
-  if (chars.indexOf("!") > -1) mask += "~`!@#$%^&*()_+-={}[]:\";'<>?,./|\\";
-  var result = "";
-  for (var i = length; i > 0; --i)
-    result += mask[Math.floor(Math.random() * mask.length)];
-  alert("we are Almost there mate");
-  return result;
-}
+// function randomString(length, chars) {
+//   alert("length is" + length + "Required" + chars);
+//   var mask = "";
+//   if (chars.indexOf("a") > -1) mask += "abcdefghijklmnopqrstuvwxyz";
+//   if (chars.indexOf("A") > -1) mask += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//   if (chars.indexOf("#") > -1) mask += "0123456789";
+//   if (chars.indexOf("!") > -1) mask += "~`!@#$%^&*()_+-={}[]:\";'<>?,./|\\";
+//   var result = "";
+//   for (var i = length; i > 0; --i)
+//     result += mask[Math.floor(Math.random() * mask.length)];
+//   alert("we are Almost there mate");
+//   return result;
+// }
 
 // alert(randomString(16, "aA"));
 // alert(randomString(32, "#aA"));
@@ -39,18 +39,35 @@ var passwordUpperCase;
 var passwordNumeric;
 var passwordSpecialCharacters;
 var required = "";
+var para = { passwordLength: 0, required: "" };
 
 writePassword();
 
 function generatePassword() {
-  prompts(passwordLength, required);
+  prompts();
   alert(
-    "After prompts length is:" + passwordLength + " Required is: " + required
+    "After prompts length is:" +
+      para.passwordLength +
+      " Required is: " +
+      para.required
   );
   //return window.crypto.getRandomValues();
-  var result = randomString(passwordLength, required);
-  alert("Value inside generatePassword is:" + result);
+  //var result = randomString(passwordLength, required);
+  //alert("Value inside generatePassword is:" + result);
+
+  var mask = "";
+  if (para.required.indexOf("a") > -1) mask += "abcdefghijklmnopqrstuvwxyz";
+  if (para.required.indexOf("A") > -1) mask += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (para.required.indexOf("#") > -1) mask += "0123456789";
+  if (para.required.indexOf("!") > -1)
+    mask += "~`!@#$%^&*()_+-={}[]:\";'<>?,./|\\";
+  var result = "";
+  for (var i = para.passwordLength; i > 0; --i)
+    result += mask[Math.floor(Math.random() * mask.length)];
+  alert("we are Almost there mate");
   return result;
+
+  //return result;
 
   // return (
   //   passwordLength +
@@ -61,7 +78,7 @@ function generatePassword() {
   // );
 }
 
-function prompts(passwordLength, required) {
+function prompts() {
   alert("Prompt function.");
   passwordLength = prompt(
     "Please choose length of your password.\n Enter a number between 8 - 128"
@@ -141,7 +158,10 @@ function prompts(passwordLength, required) {
     required += "!";
   }
   alert("Password length is " + passwordLength + " Required is: " + required);
-  return passwordLength, required;
+
+  para.passwordLength = passwordLength;
+  para.required = required;
+  //return passwordLength, required;
   //return generatePassword(passwordLength, required);
   //randomString(passwordLength, required);
 }
