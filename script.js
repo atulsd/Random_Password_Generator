@@ -2,10 +2,10 @@
 
 var generateBtn = document.querySelector("#generate");
 var passwordLength;
-var passwordLowerCase;
-var passwordUpperCase;
-var passwordNumeric;
-var passwordSpecialCharacters;
+var passwordLowerCase = "";
+var passwordUpperCase = "";
+var passwordNumeric = "";
+var passwordSpecialCharacters = "";
 var required = "";
 var para = { passwordLength: 0, required: "" };
 
@@ -38,7 +38,8 @@ function prompts() {
   passwordLength = prompt(
     "Please choose length of your password.\n Enter a number between 8 - 128"
   );
-  while (passwordLength < 9 || passwordLength > 128) {
+
+  while (isNaN(passwordLength) || passwordLength < 9 || passwordLength > 128) {
     passwordLength = prompt(
       "Please choose length of your password.\n Enter a number between 8 - 128"
     );
@@ -49,25 +50,29 @@ function prompts() {
   );
   alert(passwordLowerCase);
 
-  if (passwordLowerCase === "y" || "Y") {
+  if (passwordLowerCase === ("y" || "Y")) {
+    alert("Inside if for password lower case if yes: " + passwordLowerCase);
     required = "a";
+  } else {
+    alert("no no");
   }
+
   passwordUpperCase = prompt(
     "Do you want to include uppercase characters: \n Type Y for YES or  N for NO"
   );
-  if (passwordUpperCase === "y" || "Y") {
+  if (passwordUpperCase === ("y" || "Y")) {
     required += "A";
   }
   passwordNumeric = prompt(
     "Do you want to include numbers: \n Type Y for YES or  N for NO"
   );
-  if (passwordNumeric === "y" || "Y") {
+  if (passwordNumeric === ("y" || "Y")) {
     required += "#";
   }
   passwordSpecialCharacters = prompt(
     "Do you want to include special characters: \n Type Y for YES or  N for NO"
   );
-  if (passwordSpecialCharacters === "y" || "Y") {
+  if (passwordSpecialCharacters === ("y" || "Y")) {
     required += "!";
   }
   alert("Password length is " + passwordLength + " Required is: " + required);
