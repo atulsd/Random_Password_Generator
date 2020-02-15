@@ -1,31 +1,50 @@
 // Assignment Code
 
 var generateBtn = document.querySelector("#generate");
+var passwordLength;
+var passwordLowerCase;
+var passwordUpperCase;
+var passwordNumeric;
+var passwordSpecialCharacters;
 
 writePassword();
 
 function generatePassword() {
   prompts();
+  //return window.crypto.getRandomValues();
+  return (
+    passwordLength +
+    passwordLowerCase +
+    passwordUpperCase +
+    passwordNumeric +
+    passwordSpecialCharacters
+  );
 }
 
 function prompts() {
   alert("Prompt function.");
-  var passwordLength = prompt(
+  passwordLength = prompt(
     "Please choose length of your password.\n Enter a number between 8 - 128"
   );
-  var passwordLowerCase = prompt(
+
+  var randomNumberLength = Math.floor(
+    Math.random() * Math.floor(passwordLength)
+  );
+  alert(randomNumberLength);
+
+  passwordLowerCase = prompt(
     "What is your password character type: \n Do you want to include lowercase characters: \n Type Y for YES or  N for NO"
   );
 
-  var passwordUpperCase = prompt(
+  passwordUpperCase = prompt(
     "Do you want to include uppercase characters: \n Type Y for YES or  N for NO"
   );
 
-  var passwordNumeric = prompt(
+  passwordNumeric = prompt(
     "Do you want to include numbers: \n Type Y for YES or  N for NO"
   );
 
-  var passwordSpecialCharacters = prompt(
+  passwordSpecialCharacters = prompt(
     "Do you want to include special characters: \n Type Y for YES or  N for NO"
   );
 }
