@@ -61,12 +61,21 @@ function prompts() {
   // alert("Your lucky numbers:" + randomValue);
 
   alert(
-    "Generating random Lower characters:" +
+    "Generating random Lower characters: " +
       Math.random()
         .toString(36)
         .replace(/[^a-z]+/g, "")
         .substr(0, passwordLength)
   );
+  alert(
+    "Generating random Upper characters: " +
+      Math.random()
+        .toString(36)
+        .replace(/[^a-z]+/g, "")
+        .substr(0, passwordLength)
+        .toUpperCase()
+  );
+
   // for (var i = 0; i < array.length; i++) {
   //   alert(array[i]);
   // }
