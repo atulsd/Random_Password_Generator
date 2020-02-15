@@ -5,6 +5,11 @@ var generateBtn = document.querySelector("#generate");
 writePassword();
 
 function generatePassword() {
+  prompts();
+}
+
+function prompts() {
+  alert("Prompt function.");
   var passwordLength = prompt(
     "Please choose length of your password.\n Enter a number between 8 - 128"
   );
