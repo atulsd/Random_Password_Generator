@@ -13,12 +13,6 @@ writePassword();
 
 function generatePassword() {
   prompts();
-  alert(
-    "After prompts length is:" +
-      para.passwordLength +
-      " Required is: " +
-      para.required
-  );
 
   var mask = "";
   if (para.required.indexOf("a") > -1) mask += "abcdefghijklmnopqrstuvwxyz";
@@ -27,8 +21,12 @@ function generatePassword() {
   if (para.required.indexOf("!") > -1)
     mask += "~`!@#$%^&*()_+-={}[]:\";'<>?,./|\\";
   var result = "";
-  for (var i = para.passwordLength; i > 0; --i)
+  for (var i = para.passwordLength; i > 0; --i) {
     result += mask[Math.floor(Math.random() * mask.length)];
+    // alert("Result.length is: " + result.length);
+    //   alert("Mask.length is:" + mask.length);
+    //   alert("Displaying result: " + result + "Displaying Mask " + mask);
+  }
   alert("we are Almost there mate");
   return result;
 }
@@ -50,11 +48,17 @@ function prompts() {
   );
   alert(passwordLowerCase);
 
-  if (passwordLowerCase === ("y" || "Y")) {
-    alert("Inside if for password lower case if yes: " + passwordLowerCase);
-    required = "a";
-  } else {
-    alert("no no");
+  while (
+    !(passwordLowerCase === ("y" || "Y") || passwordLowerCase === ("n" || "N"))
+  ) {
+    passwordLowerCase = prompt(
+      "What is your password character type: \n Do you want to include lowercase characters: \n Type Y for YES or  N for NO"
+    );
+    alert("Inside while for password lower case if yes: " + passwordLowerCase);
+    if (passwordLowerCase === ("y" || "Y")) {
+      required = "a";
+      alert("Mil gaya a");
+    }
   }
 
   passwordUpperCase = prompt(
