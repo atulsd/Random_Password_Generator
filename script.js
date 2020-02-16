@@ -7,6 +7,7 @@ var passwordUpperCase = "";
 var passwordNumeric = "";
 var passwordSpecialCharacters = "";
 var required = "";
+var optionSelected = 0;
 var para = { passwordLength: 0, required: "" };
 
 writePassword();
@@ -44,31 +45,29 @@ function prompts() {
   }
 
   passwordLowerCase = prompt(
-    "What is your password character type: \n Do you want to include lowercase characters: \n Type Y for YES or  N for NO"
+    "What is your password character type: \n You need to select atleast one of the options \nDo you want to include lowercase characters: \n Type Y for YES or  N for NO"
   );
   //alert(passwordLowerCase);
 
   if (passwordLowerCase === "y" || passwordLowerCase === "Y") {
     required = "a";
-    //  alert("Mil gaya a");
+    optionSelected++;
+    //alert("Mil gaya a");
   }
 
-  // else {
-  //   while (
-  //     !(
-  //       passwordLowerCase === ("y" || "Y") || passwordLowerCase === ("n" || "N")
-  //     )
-  //   ) {
-  //     passwordLowerCase = prompt(
-  //       "What is your password character type: \n Do you want to include lowercase characters: \n Type Y for YES or  N for NO"
-  //     );
-  //     //  alert("Inside while for password lower case if yes: " + passwordLowerCase);
-  //     if (passwordLowerCase === ("y") ||passwordLowerCase === ("Y")) {
-  //       required = "a";
-  //       alert("Mil gaya a");
-  //     }
+  // while (
+  //   !(passwordLowerCase === ("y" || "Y") && passwordLowerCase === ("n" || "N"))
+  // ) {
+  //   passwordLowerCase = prompt(
+  //     "What is your password character type: \n Do you want to include lowercase characters: \n Type Y for YES or  N for NO"
+  //   );
+  //   alert("Inside while for password lower case if yes: " + passwordLowerCase);
+  //   if (passwordLowerCase === "y" || passwordLowerCase === "Y") {
+  //     required = "a";
+  //     alert("Mil gaya a");
   //   }
   // }
+
   passwordUpperCase = prompt(
     "Do you want to include uppercase characters: \n Type Y for YES or  N for NO"
   );
@@ -77,6 +76,7 @@ function prompts() {
   if (passwordUpperCase === "y" || passwordUpperCase === "Y") {
     //  alert("Inside if");
     required += "A";
+    optionSelected++;
   }
   // else{
   // do {
@@ -106,14 +106,36 @@ function prompts() {
 
   if (passwordNumeric === "y" || passwordNumeric === "Y") {
     required += "#";
+    optionSelected++;
   }
+
   passwordSpecialCharacters = prompt(
     "Do you want to include special characters: \n Type Y for YES or  N for NO"
   );
+  while (optionSelected == 0) {
+    passwordSpecialCharacters = prompt(
+      "You have not selected any option: \n You have to include atleast one option \n Type Y for YES to include special characters"
+    );
+    if (
+      passwordSpecialCharacters === "y" ||
+      passwordSpecialCharacters === "Y"
+    ) {
+      required += "!";
+      optionSelected++;
+    }
+  }
+
   if (passwordSpecialCharacters === "y" || passwordSpecialCharacters === "Y") {
     required += "!";
   }
-  //alert("Password length is " + passwordLength + " Required is: " + required);
+  alert(
+    "Password length is " +
+      passwordLength +
+      " Required is: " +
+      required +
+      "Option Slected is: " +
+      optionSelected
+  );
 
   para.passwordLength = passwordLength;
   para.required = required;
