@@ -129,14 +129,14 @@ function prompts() {
   if (passwordSpecialCharacters === "y" || passwordSpecialCharacters === "Y") {
     required += "!";
   }
-  alert(
-    "Password length is " +
-      passwordLength +
-      " Required is: " +
-      required +
-      "Option Slected is: " +
-      optionSelected
-  );
+  // alert(
+  //   "Password length is " +
+  //     passwordLength +
+  //     " Required is: " +
+  //     required +
+  //     "Option Slected is: " +
+  //     optionSelected
+  // );
 
   para.passwordLength = passwordLength;
   para.required = required;
