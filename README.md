@@ -18,7 +18,7 @@ Table of Contents:
 
 ## Description:
 
-This project is about generating Random Password based on the criteria.
+This project is about generating Random Password based on the criteria. User input is atleast one of the lowercase, uppercase, numeric, and/or special characters.
 
 # StepsTaken:
 
