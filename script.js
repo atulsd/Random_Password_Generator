@@ -33,6 +33,7 @@ function prompts() {
   //alert("Prompt function.");
   para.passwordLength = "";
   para.required = "";
+  optionSelected = 0;
 
   passwordLength = prompt(
     "Please choose length of your password.\n Enter a number between 8 - 128"
