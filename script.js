@@ -1,6 +1,7 @@
 // Assignment Code
 
 var generateBtn = document.querySelector("#generate");
+
 var passwordLength;
 var passwordLowerCase = "";
 var passwordUpperCase = "";
@@ -31,8 +32,9 @@ function generatePassword() {
 
 function prompts() {
   //alert("Prompt function.");
-  para.passwordLength = "";
+  para.passwordLength = 0;
   para.required = "";
+  required = "";
   optionSelected = 0;
 
   passwordLength = prompt(
@@ -113,6 +115,11 @@ function prompts() {
   passwordSpecialCharacters = prompt(
     "Do you want to include special characters: \n Type Y for YES or  N for NO"
   );
+  if (passwordSpecialCharacters === "y" || passwordSpecialCharacters === "Y") {
+    required += "!";
+    optionSelected++;
+  }
+
   while (optionSelected == 0) {
     passwordSpecialCharacters = prompt(
       "You have not selected any option: \n You have to include atleast one option \n Type Y for YES to include special characters"
@@ -126,9 +133,6 @@ function prompts() {
     }
   }
 
-  if (passwordSpecialCharacters === "y" || passwordSpecialCharacters === "Y") {
-    required += "!";
-  }
   // alert(
   //   "Password length is " +
   //     passwordLength +
@@ -144,8 +148,9 @@ function prompts() {
 
 // Write password to the #password input
 function writePassword() {
+  var passwordText = "";
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
