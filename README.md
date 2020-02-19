@@ -14,15 +14,15 @@ Table of Contents:
 
 [References](#References:)
 
-[Scrennshots](#Screenshots:)
+[Screenshots](#Screenshots:)
 
 ## Description:
 
-This project is about generating Random Password based on the criteria. User input is atleast one of the lowercase, uppercase, numeric, and/or special characters.
+This project is about generating Random Password between 8 - 128 characters. User input is atleast one of the lowercase, uppercase, numeric, and/or special characters. After validating user input random password is generated and displayed in the text area.
 
 # StepsTaken:
 
-Javascript has been used.
+Prompts has been used for the inputs. Javascript has been used for the validations.
 
 # Installation:
 
@@ -35,7 +35,7 @@ https://atulsd.github.io/Random_Password_Generator/
 
 # Usage:
 
-This project is about generating random password.
+This project is about generating random password between 8 - 128 characters based on the criteria explained in the description above.
 
 # Screenshots
 
