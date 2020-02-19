@@ -1,4 +1,4 @@
-# Random_Password_Generator# Responsive-Portfolio
+# Random Password Generator
 
 Project Title: Random Password Generator
 
