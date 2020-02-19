@@ -41,7 +41,7 @@ function prompts() {
     "Please choose length of your password.\n Enter a number between 8 - 128"
   );
 
-  while (isNaN(passwordLength) || passwordLength < 9 || passwordLength > 128) {
+  while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     passwordLength = prompt(
       "Please choose length of your password.\n Enter a number between 8 - 128"
     );
