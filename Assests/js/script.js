@@ -1,41 +1,43 @@
 // Assignment Code
 
 var generateBtn = document.querySelector("#generate");
-//should containLowerCase
-//containUpperCase
 var passwordLength;
-var passwordLowerCase = "";
-var passwordUpperCase = "";
-var passwordNumeric = "";
-var passwordSpecialCharacters = "";
-var required = "";
-var optionSelected = 0;
-var para = { passwordLength: 0, required: "" };
+var containLowerCase = "";
+var containUpperCase = "";
+var containNumeric = "";
+var containSpecialCharacters = "";
+var userSelectedInput = "";
+var noOfOptionSelectedCounter = 0;
+var randomPassword = { passwordLength: 0, userSelectedInput: "" };
 
 writePassword();
 
 function generatePassword() {
   prompts();
 
-  var mask = "";
-  if (para.required.indexOf("a") > -1) mask += "abcdefghijklmnopqrstuvwxyz";
-  if (para.required.indexOf("A") > -1) mask += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  if (para.required.indexOf("#") > -1) mask += "0123456789";
-  if (para.required.indexOf("!") > -1)
-    mask += "~`!@#$%^&*()_+-={}[]:\";'<>?,./|\\";
+  var passwordGenerator = "";
+  if (randomPassword.userSelectedInput.indexOf("a") > -1)
+    passwordGenerator += "abcdefghijklmnopqrstuvwxyz";
+  if (randomPassword.userSelectedInput.indexOf("A") > -1)
+    passwordGenerator += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (randomPassword.userSelectedInput.indexOf("#") > -1)
+    passwordGenerator += "0123456789";
+  if (randomPassword.userSelectedInput.indexOf("!") > -1)
+    passwordGenerator += "~`!@#$%^&*()_+-={}[]:\";'<>?,./|\\";
 
-  var result = "";
-  for (var i = para.passwordLength; i > 0; --i) {
-    result += mask[Math.floor(Math.random() * mask.length)];
+  var generatedPassword = "";
+  for (var i = randomPassword.passwordLength; i > 0; --i) {
+    generatedPassword +=
+      passwordGenerator[Math.floor(Math.random() * passwordGenerator.length)];
   }
-  return result;
+  return generatedPassword;
 }
 
 function prompts() {
-  para.passwordLength = 0;
-  para.required = "";
-  required = "";
-  optionSelected = 0;
+  randomPassword.passwordLength = 0;
+  randomPassword.userSelectedInput = "";
+  userSelectedInput = "";
+  noOfOptionSelectedCounter = 0;
 
   passwordLength = prompt(
     "Please choose length of your password.\n Enter a number between 8 - 128"
@@ -47,113 +49,113 @@ function prompts() {
     );
   }
 
-  passwordLowerCase = prompt(
+  containLowerCase = prompt(
     "What is your password character type: \n You need to select atleast one of the options \nDo you want to include lowercase characters: \n Type Y for YES or  N for NO"
   );
 
-  if (passwordLowerCase.toLowerCase() === "y") {
-    required = "a";
-    optionSelected++;
+  if (containLowerCase.toLowerCase() === "y") {
+    userSelectedInput = "a";
+    noOfOptionSelectedCounter++;
   }
 
   while (
     !(
-      passwordLowerCase.toLowerCase() === "y" ||
-      passwordLowerCase.toLowerCase() === "n"
+      containLowerCase.toLowerCase() === "y" ||
+      containLowerCase.toLowerCase() === "n"
     )
   ) {
-    passwordLowerCase = prompt(
+    containLowerCase = prompt(
       "\n Do you want to include lowercase characters: \n Please Type Y for YES or  N for NO"
     );
-    if (passwordLowerCase.toLowerCase() === "y") {
-      required = "a";
-      optionSelected++;
+    if (containLowerCase.toLowerCase() === "y") {
+      userSelectedInput = "a";
+      noOfOptionSelectedCounter++;
     }
   }
 
-  passwordUpperCase = prompt(
+  containUpperCase = prompt(
     "Do you want to include uppercase characters: \n Type Y for YES or  N for NO"
   );
 
-  if (passwordUpperCase.toUpperCase() === "Y") {
-    required += "A";
-    optionSelected++;
+  if (containUpperCase.toUpperCase() === "Y") {
+    userSelectedInput += "A";
+    noOfOptionSelectedCounter++;
   }
 
   while (
     !(
-      passwordUpperCase.toUpperCase() === "Y" ||
-      passwordUpperCase.toUpperCase() === "N"
+      containUpperCase.toUpperCase() === "Y" ||
+      containUpperCase.toUpperCase() === "N"
     )
   ) {
-    passwordUpperCase = prompt(
+    containUpperCase = prompt(
       "Do you want to include uppercase characters: \n Please Type Y for YES or  N for NO"
     );
-    if (passwordUpperCase.toUpperCase() === "Y") {
-      required += "A";
-      optionSelected++;
+    if (containUpperCase.toUpperCase() === "Y") {
+      userSelectedInput += "A";
+      noOfOptionSelectedCounter++;
     }
   }
 
-  passwordNumeric = prompt(
+  containNumeric = prompt(
     "Do you want to include numbers: \n Type Y for YES or  N for NO"
   );
 
-  if (passwordNumeric.toLowerCase() === "y") {
-    required += "#";
-    optionSelected++;
+  if (containNumeric.toLowerCase() === "y") {
+    userSelectedInput += "#";
+    noOfOptionSelectedCounter++;
   }
 
   while (
     !(
-      passwordNumeric.toLowerCase() === "y" ||
-      passwordNumeric.toLowerCase() === "n"
+      containNumeric.toLowerCase() === "y" ||
+      containNumeric.toLowerCase() === "n"
     )
   ) {
-    passwordNumeric = prompt(
+    containNumeric = prompt(
       "Do you want to include numbers: \n Please Type Y for YES or  N for NO"
     );
-    if (passwordNumeric.toLowerCase() === "y") {
-      required += "#";
-      optionSelected++;
+    if (containNumeric.toLowerCase() === "y") {
+      userSelectedInput += "#";
+      noOfOptionSelectedCounter++;
     }
   }
 
-  passwordSpecialCharacters = prompt(
+  containSpecialCharacters = prompt(
     "Do you want to include special characters: \n Type Y for YES or  N for NO"
   );
-  if (passwordSpecialCharacters.toLowerCase() === "y") {
-    required += "!";
-    optionSelected++;
+  if (containSpecialCharacters.toLowerCase() === "y") {
+    userSelectedInput += "!";
+    noOfOptionSelectedCounter++;
   }
 
   while (
     !(
-      passwordSpecialCharacters.toLowerCase() === "y" ||
-      passwordSpecialCharacters.toLowerCase() === "n"
+      containSpecialCharacters.toLowerCase() === "y" ||
+      containSpecialCharacters.toLowerCase() === "n"
     )
   ) {
-    passwordSpecialCharacters = prompt(
+    containSpecialCharacters = prompt(
       "Do you want to include numbers: \n Please Type Y for YES or  N for NO"
     );
-    if (passwordSpecialCharacters.toLowerCase() === "y") {
-      required += "!";
-      optionSelected++;
+    if (containSpecialCharacters.toLowerCase() === "y") {
+      userSelectedInput += "!";
+      noOfOptionSelectedCounter++;
     }
   }
 
-  while (optionSelected == 0) {
-    passwordSpecialCharacters = prompt(
+  while (noOfOptionSelectedCounter == 0) {
+    containSpecialCharacters = prompt(
       "You have not selected any option: \n You have to include atleast one option \n Please Type Y for YES to include special characters"
     );
-    if (passwordSpecialCharacters.toLowerCase() === "y") {
-      required += "!";
-      optionSelected++;
+    if (containSpecialCharacters.toLowerCase() === "y") {
+      userSelectedInput += "!";
+      noOfOptionSelectedCounter++;
     }
   }
 
-  para.passwordLength = passwordLength;
-  para.required = required;
+  randomPassword.passwordLength = passwordLength;
+  randomPassword.userSelectedInput = userSelectedInput;
 }
 
 // Write password to the #password input
