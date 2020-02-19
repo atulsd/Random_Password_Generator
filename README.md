@@ -39,7 +39,7 @@ This project is about generating random password.
 
 # Screenshots
 
-![Screenshot](/images/demo.png)
+![Screenshot](./Assests/images/demo.png)
 
 # References:
 
