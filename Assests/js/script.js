@@ -160,27 +160,13 @@ function prompts() {
 
 // Write password to the #password input
 function writePassword() {
-  //changeText();
-  //document.getElementById("password").innerHTML = "red";
-  var passwordText = "";
-  var password = generatePassword();
-  passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  var passwordEl = document.querySelector("#password");
+  passwordEl.value = "Your Secure Password is Being Generated";
+  setTimeout(function() {
+    var password = generatePassword();
+    passwordEl.value = password;
+  }, 500);
 }
-
-// function changeText() {
-//document.querySelector("#password", "red");
-// var disp = document.querySelector("wrapper");
-// alert(disp.lastElementChild);
-// disp.innerText = "sfasfsaf";
-// disp.innerHTML = "innerhtml";
-
-// document.onclick("password");
-// document
-// .getElementsByTagName("textarea")
-// .setAttribute("placeholder", "facebook.jpeg");
-//alert("in here");
-// }
 
 // Add event listener to generate button
 
