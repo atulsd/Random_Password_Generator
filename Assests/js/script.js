@@ -136,7 +136,7 @@ function prompts() {
     )
   ) {
     containSpecialCharacters = prompt(
-      "Do you want to include numbers: \n Please Type Y for YES or  N for NO"
+      "Do you want to include special characters: \n Please Type Y for YES or  N for NO"
     );
     if (containSpecialCharacters.toLowerCase() === "y") {
       userSelectedInput += "!";
