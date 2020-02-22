@@ -12,9 +12,9 @@ Table of Contents:
 
 [Usage](#Usage:)
 
-[References](#References:)
-
 [Screenshots](#Screenshots:)
+
+[References](#References:)
 
 ## Description:
 
@@ -39,7 +39,7 @@ This project is about generating random password between 8 - 128 characters base
 
 # Screenshots
 
-![Screenshot](./Assests/images/demo.png)
+![Screenshot](./assets/images/demo.png)
 
 # References:
 
